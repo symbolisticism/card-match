@@ -17,7 +17,7 @@ class Game extends StatelessWidget {
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
         ),
-        children: const  [
+        children: const [
           Text('1'),
           Text('2'),
           Text('3'),
