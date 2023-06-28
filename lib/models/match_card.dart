@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Card {
-  const Card({
+class MatchCard {
+  const MatchCard({
     required this.front,
     required this.back,
   });
