@@ -7,33 +7,41 @@ final cardsList = [
   MatchCard(
     front: front,
     back: Image.asset('assets/images/curvy_lines.png'),
+    matchingId: 1,
   ),
   MatchCard(
     front: front,
-    back: Image.asset('assets/images/flowers.png'),
+    back: Image.asset('assets/images/curvy_lines.png'),
+    matchingId: 1,
   ),
   MatchCard(
     front: front,
     back: Image.asset('assets/images/glass_house.png'),
+    matchingId: 2,
   ),
   MatchCard(
     front: front,
-    back: Image.asset('assets/images/money.png'),
+    back: Image.asset('assets/images/glass_house.png'),
+    matchingId: 2,
   ),
   MatchCard(
     front: front,
     back: Image.asset('assets/images/rooster.png'),
+    matchingId: 3,
   ),
   MatchCard(
     front: front,
-    back: Image.asset('assets/images/spanish_mission.png'),
+    back: Image.asset('assets/images/rooster.png'),
+    matchingId: 3,
   ),
   MatchCard(
     front: front,
     back: Image.asset('assets/images/water.png'),
+    matchingId: 4,
   ),
   MatchCard(
     front: front,
-    back: Image.asset('assets/images/books.png'),
+    back: Image.asset('assets/images/water.png'),
+    matchingId: 4,
   ),
 ];
