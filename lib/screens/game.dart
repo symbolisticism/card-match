@@ -3,38 +3,26 @@ import 'package:flutter/material.dart';
 import 'package:card_match/widgets/card_grid_item.dart';
 
 class Game extends StatefulWidget {
-  const Game({super.key});
+  const Game({
+    super.key,
+    required this.matchingCards,
+  });
+
+  final List<CardGridItem> matchingCards;
 
   @override
   State<Game> createState() => _GameState();
 }
 
 class _GameState extends State<Game> {
-  late bool _isHidden;
-  late int _counter;
-  late List<CardGridItem> _matchingCards = [];
-
-
-  void _toggleVisibility() {
-    if (_counter != 2) {
-      // _isHidden = !_isHidden;
-      _counter++;
-    } else {
-      setState(() {
-        _isHidden = !_isHidden;
-      });
-      _counter = 1;
-    }
-  }
-
   void _loadList() {
     for (final card in cardsList) {
-      _matchingCards.add(
-      CardGridItem(
+      widget.matchingCards.add(
+        CardGridItem(
           front: card.front,
           back: card.back,
           matchingId: card.matchingId,
-          hidden: _isHidden,
+          hidden: true,
         ),
       );
     }
@@ -43,8 +31,6 @@ class _GameState extends State<Game> {
   @override
   void initState() {
     super.initState();
-    _isHidden = true;
-    _counter = 1;
     _loadList();
   }
 
@@ -63,7 +49,7 @@ class _GameState extends State<Game> {
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
         ),
-        children: _matchingCards,
+        children: widget.matchingCards,
       ),
     );
   }
