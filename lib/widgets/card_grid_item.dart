@@ -1,37 +1,28 @@
 import 'package:flutter/material.dart';
 
-class CardGridItem extends StatefulWidget {
+class CardGridItem extends StatelessWidget {
   const CardGridItem({
     super.key,
     required this.front,
     required this.back,
+    required this.matchingId,
+    required this.hidden,
   });
 
   final Image front;
   final Image back;
-
-  @override
-  State<CardGridItem> createState() => _CardGridItemState();
-}
-
-class _CardGridItemState extends State<CardGridItem> {
-  bool hidden = true;
+  final int matchingId;
+  final bool hidden;
 
   @override
   Widget build(BuildContext context) {
-
     return GestureDetector(
-      onTap: () {
-        setState(() {
-          hidden = !hidden;
-        });
-      },
+      onTap: () {},
       child: Container(
         margin: const EdgeInsets.all(8),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          image: DecorationImage(
-              image: hidden ? widget.front.image : widget.back.image),
+          image: DecorationImage(image: hidden ? front.image : back.image),
         ),
       ),
     );
