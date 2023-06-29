@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CardGridItem extends StatelessWidget {
+class CardGridItem extends StatefulWidget {
   const CardGridItem({
     super.key,
     required this.front,
@@ -15,14 +15,26 @@ class CardGridItem extends StatelessWidget {
   final bool hidden;
 
   @override
+  State<CardGridItem> createState() => _CardGridItemState();
+}
+
+class _CardGridItemState extends State<CardGridItem> {
+  late bool hidden = widget.hidden;
+
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        setState(() {
+          hidden = !hidden;
+        });
+      },
       child: Container(
         margin: const EdgeInsets.all(8),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          image: DecorationImage(image: hidden ? front.image : back.image),
+          image: DecorationImage(
+              image: hidden ? widget.front.image : widget.back.image),
         ),
       ),
     );
