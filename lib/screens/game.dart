@@ -1,4 +1,7 @@
+import 'package:card_match/data/cards_list.dart';
+import 'package:card_match/models/match_card.dart';
 import 'package:flutter/material.dart';
+import 'package:card_match/widgets/card_grid_item.dart';
 
 class Game extends StatelessWidget {
   const Game({super.key});
@@ -14,18 +17,13 @@ class Game extends StatelessWidget {
         backgroundColor: Colors.black54,
       ),
       body: GridView(
+        padding: const EdgeInsets.all(10),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
         ),
-        children: const [
-          Text('1'),
-          Text('2'),
-          Text('3'),
-          Text('4'),
-          Text('5'),
-          Text('6'),
-          Text('7'),
-          Text('8'),
+        children: [
+          for (final card in cardsList)
+            CardGridItem(front: card.front, back: card.back)
         ],
       ),
     );
