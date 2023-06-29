@@ -16,7 +16,7 @@ class CardGridItem extends StatefulWidget {
 
 class _CardGridItemState extends State<CardGridItem> {
   bool hidden = true;
-  
+
   @override
   Widget build(BuildContext context) {
 
@@ -24,7 +24,6 @@ class _CardGridItemState extends State<CardGridItem> {
       onTap: () {
         setState(() {
           hidden = !hidden;
-          print(hidden);
         });
       },
       child: Container(
