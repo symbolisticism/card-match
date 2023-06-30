@@ -8,3 +8,5 @@ class GameLoopNotifier extends StateNotifier<List<CardGridItem>> {
 final gameLoopProvider =
     StateNotifierProvider<GameLoopNotifier, List<CardGridItem>>(
         (ref) => GameLoopNotifier());
+
+final counter = StateProvider<int>((ref) => 1);
