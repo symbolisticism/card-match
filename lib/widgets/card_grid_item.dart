@@ -1,6 +1,9 @@
+import 'package:card_match/providers/cards_provider.dart';
+import 'package:card_match/providers/game_loop_provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 
-class CardGridItem extends StatefulWidget {
+class CardGridItem extends ConsumerStatefulWidget {
   const CardGridItem({
     super.key,
     required this.front,
@@ -15,14 +18,17 @@ class CardGridItem extends StatefulWidget {
   final bool hidden;
 
   @override
-  State<CardGridItem> createState() => _CardGridItemState();
+  ConsumerState<CardGridItem> createState() => _CardGridItemState();
 }
 
-class _CardGridItemState extends State<CardGridItem> {
+class _CardGridItemState extends ConsumerState<CardGridItem> {
   late bool hidden = widget.hidden;
 
   @override
   Widget build(BuildContext context) {
+    // in stateful widget, you have to use 'ref' inside of
+    // the 'build' method to avoid an error
+
     return GestureDetector(
       onTap: () {
         setState(() {
