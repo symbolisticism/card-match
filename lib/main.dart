@@ -1,9 +1,14 @@
 import 'package:card_match/widgets/card_grid_item.dart';
 import 'package:flutter/material.dart';
 import 'package:card_match/screens/game.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
