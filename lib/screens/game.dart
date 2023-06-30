@@ -1,5 +1,4 @@
 import 'package:card_match/data/cards_list.dart';
-import 'package:card_match/providers/cards_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:card_match/widgets/card_grid_item.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
