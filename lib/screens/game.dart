@@ -1,8 +1,10 @@
 import 'package:card_match/data/cards_list.dart';
+import 'package:card_match/providers/cards_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:card_match/widgets/card_grid_item.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class Game extends StatefulWidget {
+class Game extends ConsumerStatefulWidget {
   const Game({
     super.key,
     required this.matchingCards,
@@ -11,10 +13,10 @@ class Game extends StatefulWidget {
   final List<CardGridItem> matchingCards;
 
   @override
-  State<Game> createState() => _GameState();
+  ConsumerState<Game> createState() => _GameState();
 }
 
-class _GameState extends State<Game> {
+class _GameState extends ConsumerState<Game> {
   void _loadList() {
     for (final card in cardsList) {
       widget.matchingCards.add(
