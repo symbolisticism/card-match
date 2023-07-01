@@ -4,9 +4,20 @@ This is a project I am working on to practice and use my Flutter and Dart skills
 
 The game will also have a timer that keeps track of how long it takes a player to match all the cards, and each player will get a high score, which will be recorded on a backend and displayed on a "High Scores" screen.
 
+# Game Samples
+![Game at start](assets/images/card_match_1.png)
+![Cards flipped over](assets/images/card_match_2.png)
 # Game Status
 
-- [x] Cards are displayed
+- [x] Card game screen is properly displayed
+- [ ] Cards are shuffled
+- [x] Cards can be turned over
+- [ ] Matches and mismatches are detected and handled
+- [ ] Game recognizes when all matches are made
+- [ ] Timer functions and records each player's time
+- [ ] High Score screen is properly displayed
+- [ ] High Score screen loads backend data (each player's name and time)
+- [ ] High Score screen sorts scores from lowest time to highest
 
 ## Getting Started
 
