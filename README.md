@@ -1,12 +1,12 @@
 # Flutter Card Match Game
 
+![Game at start](assets/images/card_match_1.png)
+![Cards flipped over](assets/images/card_match_2.png)
+
 This is a project I am working on to practice and use my Flutter and Dart skills. It is a card match game, much like any other card match game you might've played. At the beginning of the game, all cards will be shuffled. The player picks two cards, the cards are revealed, and the software evaluates whether the cards match. If they don't match, the software should flip them back over and make the player choose again. If they do match, the software will recognize it and make sure the cards stay face up.
 
 The game will also have a timer that keeps track of how long it takes a player to match all the cards, and each player will get a high score, which will be recorded on a backend and displayed on a "High Scores" screen.
 
-# Game Samples
-![Game at start](assets/images/card_match_1.png)
-![Cards flipped over](assets/images/card_match_2.png)
 # Game Status
 
 - [x] Card game screen is properly displayed
