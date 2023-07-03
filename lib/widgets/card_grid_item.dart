@@ -1,47 +1,46 @@
+import 'package:card_match/providers/cards_provider.dart';
+import 'package:card_match/providers/index_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
-import 'package:card_match/providers/counter_provider.dart';
 
-class CardGridItem extends ConsumerStatefulWidget {
-  const CardGridItem({
+// ignore: must_be_immutable
+class CardGridItem extends ConsumerWidget {
+  CardGridItem({
     super.key,
     required this.front,
     required this.back,
     required this.matchingId,
     required this.hidden,
+    required this.index,
   });
 
   final Image front;
   final Image back;
   final int matchingId;
-  final bool hidden;
+  bool hidden;
+  final int index;
 
   @override
-  ConsumerState<CardGridItem> createState() => _CardGridItemState();
-}
-
-class _CardGridItemState extends ConsumerState<CardGridItem> {
-  late bool hidden = widget.hidden;
-
-  @override
-  Widget build(BuildContext context) {
-    final counter = ref.watch(counterProvider.notifier);
-    // in stateful widget, you have to use 'ref' inside of
-    // the 'build' method to avoid an error
+  Widget build(BuildContext context, WidgetRef ref) {
+    final indexer = ref.watch(indexProvider.notifier);
+    final cards = ref.watch(cardsProvider.notifier);
 
     return GestureDetector(
       onTap: () {
-        setState(() {
-          hidden = !hidden;
-          counter.increment();
-        });
+        hidden = !hidden;
+
+        cards.flipCard(
+          this,
+          hidden,
+        );
+
+        indexer.addIndex(index);
       },
       child: Container(
         margin: const EdgeInsets.all(8),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          image: DecorationImage(
-              image: hidden ? widget.front.image : widget.back.image),
+          image: DecorationImage(image: hidden ? front.image : back.image),
         ),
       ),
     );
