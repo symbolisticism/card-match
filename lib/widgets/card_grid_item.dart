@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
+import 'package:card_match/providers/counter_provider.dart';
 
 class CardGridItem extends ConsumerStatefulWidget {
   const CardGridItem({
@@ -24,6 +25,7 @@ class _CardGridItemState extends ConsumerState<CardGridItem> {
 
   @override
   Widget build(BuildContext context) {
+    final counter = ref.watch(counterProvider.notifier);
     // in stateful widget, you have to use 'ref' inside of
     // the 'build' method to avoid an error
 
@@ -31,6 +33,7 @@ class _CardGridItemState extends ConsumerState<CardGridItem> {
       onTap: () {
         setState(() {
           hidden = !hidden;
+          counter.increment();
         });
       },
       child: Container(
